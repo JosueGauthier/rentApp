@@ -8,6 +8,9 @@ class Organization(models.Model):
 
     Organisation is an student association in our case that proceed on a specific field (e.g : sewing, work equipment, sound equipment )
 
+    name_organization
+    image_organization_url
+    
     """
     name_organization = models.CharField('Nom', max_length=254)
     image_organization_url = models.TextField('imagelink')
@@ -27,6 +30,10 @@ class Category(models.Model):
     Define category model 
 
     A category is a group of product of the same type of one organization
+    
+    name_category,
+    image_category_url,
+    organization,
     """
     name_category = models.CharField('Nom', max_length=254)
     image_category_url = models.TextField('imagelink')
@@ -47,6 +54,15 @@ class Product(models.Model):
     Define product model 
 
     Product is a the object that a personn wants to borrow. 
+    
+    name_product,
+    image_product_url,
+    category,
+    is_active,
+    is_removed,
+    qty_total,
+    qty_available,
+    is_consumable,
 
     """
     name_product = models.CharField('Nom', max_length=254)

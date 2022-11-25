@@ -9,13 +9,18 @@ from organization.models import Product
 class Reservation(models.Model):
     """
     Define a Reservation.
+    
+    start_date,
+    end_date,
+    renter,
+    product_rented
 
     """
     start_date = models.DateTimeField('Date', default=now)
     end_date = models.DateTimeField('Date', default=now)
     renter = models.ForeignKey(User,
                                on_delete=models.CASCADE)
-    renter = models.ForeignKey(Product,
+    product_rented = models.ForeignKey(Product,
                                on_delete=models.CASCADE)
 
     def __str__(self):
