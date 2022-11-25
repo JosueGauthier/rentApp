@@ -3,7 +3,7 @@ from django.db import models
 from django.utils.timezone import now
 from django.contrib.auth.models import User
 
-from rentapp.organization.models import Product
+from organization.models import Product
 
 
 class Reservation(models.Model):

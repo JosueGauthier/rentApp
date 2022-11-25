@@ -1,1 +1,4 @@
 /env
+rentapp/rentapp/settings.py
+rentapp/rentapp/__pycache__/settings.cpython-310.pyc
+rentapp/db.sqlite3
