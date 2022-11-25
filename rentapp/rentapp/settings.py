@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'organization',
     'reservation',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
