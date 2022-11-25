@@ -55,7 +55,8 @@ class Product(models.Model):
     is_active = models.BooleanField('Active', default=True)
     is_removed = models.BooleanField('Removed', default=False)
     qty_total = models.IntegerField('Total quantity', default=1)
-    qty_available = models.BooleanField('Total quantity', default=1)
+    qty_available = models.IntegerField('Available quantity', default=1)
+    is_consumable = models.BooleanField('Consumable', default=False)
 
     def __str__(self):
         """
