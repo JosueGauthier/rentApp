@@ -1,4 +1,3 @@
-from datetime import datetime
 from django.db import models
 
 from django.utils.timezone import now
@@ -27,10 +26,6 @@ class Reservation(models.Model):
 
     def __str__(self):
         """
-        Return the display name of the Sale.
-
-        :returns: pk of sale
-        :rtype: string
         """
         return 'Reservation of ' + self.quantity_rented.__str__() + " " + self.product_rented.__str__() + " by " + self.renter.__str__() + " from " + self.start_date.__str__() + ' to ' + self.end_date.__str__()
 
