@@ -9,7 +9,6 @@ from rest_framework import permissions
 
 from reservation.views import check_reservation_for_non_consumable
 
-# from users.serializers import LoginSerializer
 
 
 from .models import *
@@ -30,7 +29,11 @@ class CategoryViewSet(viewsets.ModelViewSet):
 
 
 class ProductViewSet(viewsets.ModelViewSet):
-    
+    def dispatch(self, request, *args, **kwargs):
+        response = super().dispatch(request, *args, **kwargs)
+        check_reservation_for_non_consumable()
+        return response
+            
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     filter_backends = [DjangoFilterBackend]

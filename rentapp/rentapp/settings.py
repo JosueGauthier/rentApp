@@ -104,7 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Europe/Paris"
 
 USE_I18N = True
 
@@ -141,7 +141,7 @@ REST_FRAMEWORK = {
 
 
 
-# Celery Configuration Options
+""" # Celery Configuration Options
 CELERY_TIMEZONE = "Australia/Tasmania"
 CELERY_TASK_TRACK_STARTED = True
-CELERY_TASK_TIME_LIMIT = 30 * 60
+CELERY_TASK_TIME_LIMIT = 30 * 60 """
