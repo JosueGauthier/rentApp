@@ -13,7 +13,10 @@ class Reservation(models.Model):
     start_date,
     end_date,
     renter,
-    product_rented
+    product_rented,
+    quantity_rented,
+    is_reservation_executed,
+    is_endof_reservation_executed
 
     """
     start_date = models.DateTimeField('Date', default=now)
@@ -23,6 +26,9 @@ class Reservation(models.Model):
     product_rented = models.ForeignKey(Product,
                                        on_delete=models.CASCADE)
     quantity_rented = models.IntegerField('Quantity', default=1)
+    is_reservation_executed =models.BooleanField('Is executed', default=False)
+    is_endof_reservation_executed =models.BooleanField('End of reservation executed', default=False)
+    
 
     def __str__(self):
         """
