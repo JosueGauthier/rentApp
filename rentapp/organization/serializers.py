@@ -1,5 +1,7 @@
 from rest_framework import serializers
 
+from reservation.views import check_reservation_for_non_consumable
+
 from .models import *
 
 
@@ -16,6 +18,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
+    check_reservation_for_non_consumable()
     class Meta:
         model = Product
         fields = ['id', 'name_product', 'image_product_url', 'category',

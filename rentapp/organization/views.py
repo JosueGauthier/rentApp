@@ -7,6 +7,8 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 from rest_framework import permissions
 
+from reservation.views import check_reservation_for_non_consumable
+
 # from users.serializers import LoginSerializer
 
 
@@ -28,43 +30,9 @@ class CategoryViewSet(viewsets.ModelViewSet):
 
 
 class ProductViewSet(viewsets.ModelViewSet):
+    
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['id', 'category',
                         'is_active', 'is_removed', 'qty_total', 'qty_available', 'is_consumable']
-
-
-""" @api_view(['POST'])
-@permission_classes([IsAdminUser])
-def product_post(request):
-
-    serializer = ProductSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-
-@api_view(['POST'])
-@permission_classes([IsAdminUser])
-def _post(request):
-
-    serializer = OrganizationSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-
-@api_view(['POST'])
-@permission_classes([IsAdminUser])
-def product_post(request):
-
-    serializer = ProductSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST) """
