@@ -37,7 +37,6 @@ class ReservationViewSet(viewsets.ModelViewSet):
         serializer = ReservationSerializer(data=request.data)
 
         if serializer.is_valid():
-
             data = dict(serializer.validated_data)
             product = Product.objects.get(id=data['product_rented'].id)
 
@@ -58,7 +57,6 @@ class ReservationViewSet(viewsets.ModelViewSet):
 
                 # if there is no reservation we just create the reservation
                 if len(reservation_list) == 0:
-                    print("je suis la")
                     if data['quantity_rented'] <= product.qty_total:
                         serializer.save()
                         return Response("Success",
@@ -83,8 +81,6 @@ class ReservationViewSet(viewsets.ModelViewSet):
 
 
 def reservation_for_consumable(product, qty_rented):
-    print(product.name_product)
-
     product.qty_available = product.qty_available - qty_rented
 
     if product.qty_available >= 0:
@@ -99,14 +95,9 @@ def check_reservation_for_non_consumable():
     reservationList = Reservation.objects.filter(
         is_endof_reservation_executed=False)
     for i in range(len(reservationList)):
-        print(reservationList[i].id)
         reservation = Reservation.objects.get(id=reservationList[i].id)
         product = Product.objects.get(id=reservation.product_rented.id)
-
         time_now = localtime()
-
-        print(time_now)
-        print(reservation.__str__)
 
         if product.is_consumable == False:
 
