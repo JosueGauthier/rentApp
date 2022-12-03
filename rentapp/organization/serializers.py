@@ -1,7 +1,4 @@
 from rest_framework import serializers
-
-from reservation.views import check_reservation_for_non_consumable
-
 from .models import *
 
 

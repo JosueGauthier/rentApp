@@ -1,17 +1,10 @@
-from rest_framework.response import Response
-from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import IsAdminUser
-from rest_framework import status
-from rest_framework import viewsets, views
-from django_filters.rest_framework import DjangoFilterBackend
 
-from rest_framework import permissions
+from rest_framework import viewsets
+from django_filters.rest_framework import DjangoFilterBackend
 
 from reservation.views import check_reservation_for_non_consumable
 
-
 from .models import *
-
 from .serializers import *
 
 
